@@ -25,7 +25,7 @@ module.exports.getProduct = (req, res) => {
 }
 
 module.exports.updateProduct = (req, res) => {
-    Product.findByIdAndUpdate({ _id: req.params.id }, req.body, { new: true })
+    Product.findByIdAndUpdate({ _id: req.params.id }, req.body, { new: true, runValidators: true })
         .then(updatedProduct => res.json(updatedProduct))
         .catch(err => res.json(err));
 }
